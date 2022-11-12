@@ -9,3 +9,26 @@
 ["Russia", "Denmark", "Kazan"] -> []
 */
 
+string[] GetInputArrayFromUser()
+{
+    Console.WriteLine("Привет! Эта программа находит элементы массива строк, количество символов в которых меньше или равно трем, и создает новый массив из этих элементов");
+    Console.WriteLine("Введите количество элементов масиива строк");
+    int arraySize = Convert.ToInt32(Console.ReadLine());
+    string[] inputArray = new string[arraySize];
+    for (int i = 0; i < arraySize; i++)
+    {
+        Console.WriteLine($"Введите элемент массива строк с индексом {i}: ");
+        inputArray[i] = Console.ReadLine();
+    }
+    return inputArray;
+}
+
+// string[] userArray = GetInputArrayFromUser();
+// Console.Write("[");
+// Console.Write(string.Join(", ", userArray));
+// Console.WriteLine("]");
+
+
+
+
+
