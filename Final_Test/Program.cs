@@ -11,8 +11,7 @@
 
 string[] GetInputArrayFromUser()
 {
-    Console.WriteLine("Привет! Эта программа находит элементы массива строк, количество символов в которых меньше или равно трем, и создает новый массив из этих элементов");
-    Console.WriteLine("Введите количество элементов масиива строк");
+    Console.Write("Введите количество элементов масcива строк: ");
     int arraySize = Convert.ToInt32(Console.ReadLine());
     string[] inputArray = new string[arraySize];
     for (int i = 0; i < arraySize; i++)
@@ -23,12 +22,32 @@ string[] GetInputArrayFromUser()
     return inputArray;
 }
 
-// string[] userArray = GetInputArrayFromUser();
-// Console.Write("[");
-// Console.Write(string.Join(", ", userArray));
-// Console.WriteLine("]");
+string[] UpTo3SymbolsSortArray(string[] inputArray)
+{
+    string[] resultArray = new string[inputArray.Length];
+    int count = 0;
+    for (int i = 0; i < inputArray.Length; i++)
+    {
+        if (inputArray[i].Length <= 3)
+        {
+            resultArray[count] = inputArray[i];
+            count++;
+        }
+    }
+    Array.Resize(ref resultArray, count);
+    return resultArray;
+}
 
+void PrintStringResultArray(string[] inputArray)
+{
+    Console.Write("[");
+    Console.Write(string.Join(", ", inputArray));
+    Console.WriteLine("]");
+}
 
-
-
+Console.WriteLine("Привет! Эта программа находит элементы массива строк, количество символов в которых меньше или равно трем, и создает новый массив из этих элементов");
+string[] userArray = GetInputArrayFromUser();
+string[] upTo3SymbolsSortedArray = UpTo3SymbolsSortArray(userArray);
+Console.WriteLine("Новый массив с элементами, число символов в которых меньше или равно трем:");
+PrintStringResultArray(upTo3SymbolsSortedArray);
 
